@@ -76,7 +76,7 @@ class Database:
         if isValidLogin:
             row = self.cursor.execute("SELECT id FROM UserTable WHERE email = ?", (email,)).fetchone()
             id = row[0]
-
+        print(f"Login successful for user with ID {id}")
         return (isValidLogin, id)
 
 
@@ -124,7 +124,7 @@ class Database:
 
 if __name__ == "__main__":
     db = Database()
-    #db.register("Blaze", "Blaze@example.com", "password", "Barber")
+    db.register("Blaze", "7196390839", "password", "Barber")
     #db.register("Blaze", "Blaze@gmail.com", "password", "Customer")
     loggedIn, id = db.login("Blaze@gmail.com", "password")
     print(id)
